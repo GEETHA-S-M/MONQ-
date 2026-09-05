@@ -62,7 +62,8 @@ export function mount(host) {
 
   /* ---- sachet: the real pack artwork, tilted as if mid-pour ---- */
   const loader = new THREE.TextureLoader();
-  const packTex = loader.load('assets/img/pack-0.webp');
+  // resolved against this module's own URL, so it holds from any page depth
+  const packTex = loader.load(new URL('../img/pack-0.webp', import.meta.url).href);
   packTex.colorSpace = THREE.SRGBColorSpace;
   const sachet = new THREE.Mesh(
     new THREE.PlaneGeometry(1.0, 1.15),

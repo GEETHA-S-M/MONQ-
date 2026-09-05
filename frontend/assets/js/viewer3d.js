@@ -49,7 +49,9 @@ function noiseTexture(THREE, size) {
 
 export function mount(host, opts) {
   opts = opts || {};
-  const texUrl = opts.texture || 'assets/img/pack-0.webp';
+  // resolved against this module's own URL, so the default holds whether the
+  // caller is the homepage at the site root or a page down in /pages/
+  const texUrl = opts.texture || new URL('../img/pack-0.webp', import.meta.url).href;
 
   const renderer = new THREE.WebGLRenderer({
     antialias: true, alpha: true, powerPreference: 'high-performance'

@@ -17,6 +17,20 @@
   var lerp = function (a, b, t) { return a + (b - a) * t; };
   var clamp = function (v, a, b) { return Math.min(b, Math.max(a, v)); };
 
+  /* ---------- site-root-relative URLs ----------
+     index.html sits at the site root and the other fourteen pages sit one
+     level down in /pages/, so any URL this file builds at runtime has to
+     know which of the two it is running on. ROOT is the hop back up to the
+     root from here; url() takes a root-relative path ('pages/cart.html',
+     'assets/img/x.webp') and makes it correct for the current page.
+
+     It also tolerates a path that already carries a '../' or a leading
+     slash, which matters for cart thumbnails: those are read out of the
+     markup and kept in localStorage, so a cart filled on the homepage gets
+     read back on /pages/cart.html and vice versa. */
+  var ROOT = /\/pages\//.test(location.pathname) ? '../' : '';
+  var url  = function (p) { return ROOT + String(p).replace(/^(?:\.\.\/)+|^\//, ''); };
+
   /* ---------- sticky nav ----------
      The bar has two states. Over the hero it stays exactly as the hero
      was designed: transparent, cream-on-navy. Past the hero it collapses
@@ -472,7 +486,7 @@
       var row = document.createElement('div');
       row.className = 'line';
       row.innerHTML =
-        '<div class="line__media">' + (it.img ? '<img src="' + esc(it.img) + '" alt="" loading="lazy">' : '') + '</div>' +
+        '<div class="line__media">' + (it.img ? '<img src="' + esc(url(it.img)) + '" alt="" loading="lazy">' : '') + '</div>' +
         '<div class="line__body">' +
           '<h3>' + esc(it.name) + '</h3>' +
           '<p class="line__unit">' + money(it.price) + ' each</p>' +
@@ -807,7 +821,7 @@
             var resume = afterAuth;
             closeAuth();
             if (resume === 'cart') setTimeout(openCart, 320);
-            else if (resume === 'checkout') { window.location.href = 'checkout.html'; }
+            else if (resume === 'checkout') { window.location.href = url('pages/checkout.html'); }
             if (typeof syncCheckoutView === 'function') syncCheckoutView();
           }, 900);
         }).catch(function (err) {
@@ -858,7 +872,7 @@
     });
     var acctTrack = $('[data-acct-track]');
     if (acctTrack) {
-      acctTrack.addEventListener('click', function () { window.location.href = 'track-order.html'; });
+      acctTrack.addEventListener('click', function () { window.location.href = url('pages/track-order.html'); });
     }
     $('[data-signout]').addEventListener('click', function () {
       try { localStorage.removeItem(SKEY); } catch (err) {}
@@ -872,7 +886,7 @@
        summary button -- querySelector would only ever wire the first. ---- */
     $$('[data-checkout]').forEach(function (checkout) {
       checkout.addEventListener('click', function () {
-        if (render()) { window.location.href = 'checkout.html'; return; }  // already signed in
+        if (render()) { window.location.href = url('pages/checkout.html'); return; }  // already signed in
         afterAuth = 'checkout';
         closeCart();
         setTimeout(function () {
@@ -1025,7 +1039,7 @@
             var idEl = $('[data-confirm-id]', coConfirm);
             if (idEl) idEl.textContent = order.id;
             var trackLink = $('[data-confirm-track]', coConfirm);
-            if (trackLink) trackLink.href = 'track-order.html?order=' + encodeURIComponent(order.id);
+            if (trackLink) trackLink.href = url('pages/track-order.html') + '?order=' + encodeURIComponent(order.id);
           }
 
           coGo.classList.remove('is-busy');
@@ -1177,7 +1191,7 @@
         boot.disconnect();
         import('./viewer3d.js')
           .then(function (mod) {
-            mod.mount($('[data-gl]', stage3d), { texture: 'assets/img/pack-0.webp' });
+            mod.mount($('[data-gl]', stage3d), { texture: url('assets/img/pack-0.webp') });
             stage3d.classList.add('is-3d');
             // the fallback's drag handler and auto-spin are now redundant
             var fb = $('[data-spin]', stage3d);

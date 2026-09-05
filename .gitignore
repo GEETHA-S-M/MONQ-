@@ -1,0 +1,13 @@
+# Local Claude Code settings (machine-specific permissions)
+.claude/settings.local.json
+
+# Vendored copies of the ui-ux-pro-max design skill (~41 MB of tooling, not part
+# of the site -- the skill is installed globally, so these are duplicates)
+ui-ux-pro-max-skill/
+.claude/skills/
+
+# OneDrive / Windows / editor noise
+desktop.ini
+Thumbs.db
+.DS_Store
+*.tmp

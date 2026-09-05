@@ -1,0 +1,338 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Track Your Order â€” monq.</title>
+<meta name="description" content="Look up the delivery status of any monq. order by order number and email, or view your full order history.">
+<meta name="theme-color" content="#150e09">
+<link rel="icon" href="../assets/img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css?v=38">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav">
+  <div class="nav__in">
+    <a class="nav__logo" href="index.html#hero" aria-label="monq. home">
+      <img src="../assets/img/logo-lockup.png" alt="monq. â€” sweetness you can trust" width="800" height="215">
+    </a>
+    <nav class="nav__links" id="navLinks" aria-label="Primary">
+      <a href="index.html#hero">Home</a>
+      <a href="index.html#shop">Products</a>
+      <a href="index.html#story">About</a>
+      <a href="faq.html">FAQ</a>
+      <a href="blog.html">Blog</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+    <div class="nav__tools">
+      <button class="nav__burger" type="button" aria-expanded="false" aria-controls="navLinks" aria-label="Toggle navigation menu">
+        <span class="nav__burger-label" data-nav-active-label>Menu</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <button class="ic ic--cart" type="button" aria-label="Cart" data-cart-open>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14l-1.2 12H6.2z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><path d="M9 8a3 3 0 0 1 6 0" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>
+        <span class="ic__badge" data-cart-count hidden>0</span>
+      </button>
+      <button class="ic" type="button" aria-label="Sign in" data-auth-open="in">
+        <span class="ic__login" aria-hidden="true"></span>
+      </button>
+      <div class="acct" data-acct hidden>
+        <button class="acct__btn" type="button" data-acct-toggle aria-expanded="false" aria-haspopup="true">
+          <span data-acct-initial aria-hidden="true"></span>
+          <span class="sr">Account menu</span>
+        </button>
+        <div class="acct__menu" data-acct-menu role="menu" hidden>
+          <p class="acct__who">Signed in as<b data-acct-email></b></p>
+          <button type="button" role="menuitem" data-acct-orders>Your cart</button>
+          <button type="button" role="menuitem" data-acct-track>Track your orders</button>
+          <button type="button" role="menuitem" data-signout>Sign out</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="track-hero">
+  <p class="eyebrow">Order Status</p>
+  <h1 class="sec__t">Track Your Order</h1>
+  <p class="lede">Look up any order by its number and email, or sign in to see your full order history below.</p>
+</section>
+
+<div class="track-wrap" data-track-page>
+  <form class="track-lookup" data-track-form novalidate>
+    <div class="fld">
+      <label class="fld__l" for="tr-id">Order number</label>
+      <input id="tr-id" name="orderId" type="text" placeholder="MQ000000" required>
+    </div>
+    <div class="fld">
+      <label class="fld__l" for="tr-email">Email</label>
+      <input id="tr-email" name="email" type="email" placeholder="you@example.com" required>
+    </div>
+    <button class="af__go" type="submit"><span>Track</span></button>
+  </form>
+
+  <div data-track-result hidden></div>
+  <p class="track-empty" data-track-notfound hidden>We couldn&rsquo;t find a matching order. Double-check the order number and email, or sign in to see your full order history.</p>
+
+  <div data-track-mine hidden>
+    <h2 class="track-mine__t">Your Orders</h2>
+    <div data-track-mine-list></div>
+    <p class="track-empty" data-track-mine-empty>No orders yet &mdash; once you check out, they&rsquo;ll show up here.</p>
+  </div>
+</div>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="ft">
+  <div class="ft__in">
+    <div class="ft__brand">
+      <img src="../assets/img/logo-lockup.png" alt="monq. â€” sweetness you can trust" width="800" height="215">
+      <nav class="ft__social" aria-label="Social media">
+        <a href="https://instagram.com/monq" target="_blank" rel="noopener" aria-label="monq. on Instagram">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.4"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.4"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor"/></svg>
+        </a>
+        <a href="https://tiktok.com/@monq" target="_blank" rel="noopener" aria-label="monq. on TikTok">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3.5c.6 2 2 3.3 4 3.5v3c-1.5 0-2.9-.4-4-1.2V15a5.3 5.3 0 1 1-5.3-5.3c.3 0 .6 0 .9.07v3.05a2.3 2.3 0 1 0 1.6 2.2V3.5z" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="https://pinterest.com/monq" target="_blank" rel="noopener" aria-label="monq. on Pinterest">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M9.5 18c.6-1.6 1.6-5.3 1.6-5.3M12 12a2.4 2.4 0 1 0 2.6-2.6c-2.6 0-3.4 1.9-3.4 3.4 0 1 .4 1.7.8 2" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </nav>
+    </div>
+    <nav class="ft__cols" aria-label="Footer">
+      <div><h3>Shop</h3><a href="index.html#shop">Classic Sachet</a><a href="index.html#shop">Pocket Stick</a><a href="index.html#shop">Baker&rsquo;s Pouch</a><a href="cart.html">Cart</a></div>
+      <div><h3>Learn</h3><a href="index.html#ingredients">Ingredients</a><a href="index.html#story">Our Story</a><a href="index.html#ingredients">Comparison</a><a href="blog.html">Blog</a></div>
+      <div><h3>Customer Care</h3><a href="faq.html">FAQ</a><a href="shipping-delivery.html">Shipping &amp; Delivery</a><a href="track-order.html">Track Your Order</a><a href="return-refund-policy.html">Returns &amp; Refunds</a><a href="index.html#contact">Contact Us</a></div>
+      <div><h3>Legal</h3><a href="privacy-policy.html">Privacy Policy</a><a href="terms.html">Terms &amp; Conditions</a><a href="shipping-policy.html">Shipping Policy</a></div>
+    </nav>
+  </div>
+  <div class="ft__base">
+    <p>&copy; 2026 monq. All rights reserved.</p>
+    <p>Zero calories. Diabetic friendly. Plant derived.</p>
+  </div>
+</footer>
+
+<!-- ============ WHATSAPP ============ -->
+<a class="wa" href="https://wa.me/14155550148" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
+  <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.39 1.26 4.81L2 22l5.42-1.36a9.8 9.8 0 0 0 4.62 1.17h.01c5.46 0 9.9-4.45 9.9-9.91S17.5 2 12.04 2zm5.8 14.05c-.24.68-1.4 1.32-1.93 1.4-.5.08-1.11.11-1.79-.11-.41-.13-.95-.31-1.63-.6-2.87-1.24-4.74-4.13-4.89-4.32-.14-.2-1.17-1.56-1.17-2.98s.73-2.11 1-2.4c.24-.27.53-.33.71-.33h.5c.16 0 .38-.03.58.44.24.57.8 1.99.87 2.13.07.14.12.31.02.5-.09.2-.14.31-.28.48-.14.16-.29.36-.42.48-.14.14-.28.28-.12.55.16.27.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.21 1.37.27.14.43.11.59-.07.16-.18.68-.79.86-1.06.18-.27.36-.22.6-.13.24.09 1.55.73 1.82.86.27.14.44.2.51.31.07.13.07.7-.17 1.38z"/></svg>
+  <span class="wa__label">Chat on WhatsApp</span>
+</a>
+
+<!-- ============ CART ============ -->
+<div class="drawer" data-drawer hidden>
+  <div class="drawer__scrim" data-cart-close></div>
+  <aside class="drawer__panel cartm" role="dialog" aria-modal="true" aria-label="Your cart">
+    <header class="cartm__head">
+      <img class="cartm__logo logo--ink" src="../assets/img/logo-lockup.png" alt="monq. — sweetness you can trust" width="800" height="215">
+      <button class="ic" type="button" aria-label="Close cart" data-cart-close>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </button>
+    </header>
+
+    <div class="cartm__body">
+      <div class="cartm__left">
+        <div class="cartm__empty" data-cart-empty>
+          <span class="cartm__illo" aria-hidden="true">
+            <svg viewBox="0 0 100 100" aria-hidden="true">
+              <path d="M18 24h10l7 34a5 5 0 0 0 5 4h26a5 5 0 0 0 5-4l6-24H33" fill="none" stroke="var(--ink-3)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="42" cy="72" r="4" fill="none" stroke="var(--ink-3)" stroke-width="2.2"/>
+              <circle cx="64" cy="72" r="4" fill="none" stroke="var(--ink-3)" stroke-width="2.2"/>
+              <path d="M52 22c0-8 6-14 14-14-1 8-6 14-14 14z" fill="none" stroke="var(--gold)" stroke-width="2" stroke-linejoin="round"/>
+              <path d="M52 22c-4-3-6-8-4-13" fill="none" stroke="var(--gold)" stroke-width="1.6" stroke-linecap="round"/>
+            </svg>
+          </span>
+          <b class="cartm__etitle">Your cart is empty</b>
+          <p class="cartm__esub">Looks like you haven&rsquo;t added anything yet. Explore our products and add your favourites.</p>
+          <a class="btn btn--solid cartm__cta" href="index.html#shop">
+            <span>Continue Shopping</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <ul class="cartm__trust">
+            <li class="cartm__trustit">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3C7 3 4 7 4 12c0 3 1.6 5 4 6M12 3c5 0 8 4 8 9 0 3-1.6 5-4 6M12 3v15" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span>Natural Sweetness</span>
+            </li>
+            <li class="cartm__trustit">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v6c0 4.5-3 8-7 9-4-1-7-4.5-7-9V6z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span>Trusted Quality</span>
+            </li>
+            <li class="cartm__trustit">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 8h10v8H3z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><path d="M13 11h4l3 3v2h-7z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><circle cx="7" cy="18" r="1.6" fill="none" stroke="currentColor" stroke-width="1.4"/><circle cx="17" cy="18" r="1.6" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>
+              <span>Fast &amp; Secure Delivery</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="cartm__filled">
+          <ul class="drawer__list" data-cart-list></ul>
+          <footer class="drawer__foot">
+            <div class="drawer__tot"><span>Subtotal</span><b data-cart-total>$0</b></div>
+            <a class="drawer__viewcart" href="cart.html">View full cart</a>
+            <button class="btn btn--solid" type="button" data-checkout>Checkout</button>
+          </footer>
+        </div>
+      </div>
+
+      <div class="cartm__right" aria-label="Recommended products" role="region">
+        <div class="cartm__rhead">
+          <h3>Add these products</h3>
+          <a href="index.html#shop">See all &rarr;</a>
+        </div>
+        <div class="cartm__reco">
+          <div class="cartm__card" data-cart-quickadd="Baker&rsquo;s Pouch" data-price="22" data-img="../assets/img/stick-pour.webp">
+            <div class="cartm__cimg"><img src="../assets/img/stick-pour.webp" alt="" loading="lazy"></div>
+            <div class="cartm__cinfo">
+              <b>Baker&rsquo;s Pouch</b>
+              <span>250 g &middot; loose crystal</span>
+              <span class="cartm__price"><b>$22</b><s>$26</s></span>
+            </div>
+            <button class="cartm__add" type="button" data-cart-quickadd-btn>+ Add</button>
+          </div>
+          <div class="cartm__card" data-cart-quickadd="Classic Sachet" data-price="14" data-img="../assets/img/pack-0.webp">
+            <div class="cartm__cimg"><img src="../assets/img/pack-0.webp" alt="" loading="lazy"></div>
+            <div class="cartm__cinfo">
+              <b>Classic Sachet</b>
+              <span>1 g &middot; box of 100</span>
+              <span class="cartm__price"><b>$14</b><s>$16</s></span>
+            </div>
+            <button class="cartm__add" type="button" data-cart-quickadd-btn>+ Add</button>
+          </div>
+        </div>
+        <p class="cartm__promo">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3C7 3 4 7 4 12c0 3 1.6 5 4 6M12 3c5 0 8 4 8 9 0 3-1.6 5-4 6M12 3v15" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>Sweetness you can trust.</span>
+        </p>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<!-- ============ AUTH ============ -->
+<div class="modal" data-auth hidden>
+  <div class="modal__scrim" data-auth-close></div>
+  <div class="modal__panel" role="dialog" aria-modal="true" aria-labelledby="authTitle">
+    <button class="modal__x ic" type="button" data-auth-close aria-label="Close">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </button>
+
+
+
+    <img class="modal__logo" src="../assets/img/logo-lockup.png" alt="monq. — sweetness you can trust" width="800" height="215">
+    <h2 class="modal__t" id="authTitle" data-auth-title>Sign in</h2>
+    <p class="modal__sub" data-auth-sub>Welcome back! Please sign in to your account.</p>
+
+    <div class="tabs" role="tablist" aria-label="Sign in or create an account">
+      <button class="tabs__b is-on" type="button" role="tab" id="tab-in" aria-controls="pane-in" aria-selected="true"  data-tab="in">Sign in</button>
+      <button class="tabs__b"       type="button" role="tab" id="tab-up" aria-controls="pane-up" aria-selected="false" data-tab="up">Sign up</button>
+    </div>
+
+    <!-- sign in -->
+    <form class="af" id="pane-in" role="tabpanel" aria-labelledby="tab-in" data-form="in" novalidate>
+      <div class="fld">
+        <label class="fld__l" for="in-email">Email</label>
+        <div class="fld__wrap">
+          <span class="fld__ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4.5 6h15v12h-15z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><path d="M4.5 6.8l7.5 6 7.5-6" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg></span>
+          <input id="in-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+        </div>
+        <em class="fld__e" data-err="email" role="alert"></em>
+      </div>
+      <div class="fld">
+        <label class="fld__l" for="in-pass">Password</label>
+        <div class="fld__wrap">
+          <span class="fld__ic" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="10.5" width="14" height="9.5" rx="2.2" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M8 10.5V7.6a4 4 0 0 1 8 0v2.9" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></span>
+          <input id="in-pass" name="password" type="password" autocomplete="current-password" placeholder="Enter your password" required>
+          <button class="fld__eye" type="button" data-eye aria-label="Show password" aria-pressed="false">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.6-6.5 10-6.5S22 12 22 12s-3.6 6.5-10 6.5S2 12 2 12z" fill="none" stroke="currentColor" stroke-width="1.4"/><circle cx="12" cy="12" r="2.8" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>
+          </button>
+        </div>
+        <em class="fld__e" data-err="password" role="alert"></em>
+      </div>
+      <div class="af__row">
+        <label class="chk"><input type="checkbox" name="remember"><span></span>Keep me signed in</label>
+        <button class="af__link" type="button" data-forgot>Forgot password?</button>
+      </div>
+      <button class="af__go" type="submit"><span>Sign in</span></button>
+      <p class="af__note" data-note role="status"></p>
+
+      <div class="af__or"><span>or</span></div>
+      <button class="af__oauth" type="button">
+        <svg class="af__oauth-ic" viewBox="0 0 18 18" aria-hidden="true">
+          <path fill="#4285F4" d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844a4.14 4.14 0 0 1-1.796 2.716v2.259h2.908c1.702-1.567 2.684-3.874 2.684-6.615z"/>
+          <path fill="#34A853" d="M9 18c2.43 0 4.467-.806 5.956-2.18l-2.908-2.259c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332A8.997 8.997 0 0 0 9 18z"/>
+          <path fill="#FBBC05" d="M3.964 10.71A5.41 5.41 0 0 1 3.682 9c0-.593.102-1.17.282-1.71V4.958H.957A8.996 8.996 0 0 0 0 9c0 1.452.348 2.827.957 4.042l3.007-2.332z"/>
+          <path fill="#EA4335" d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0A8.997 8.997 0 0 0 .957 4.958L3.964 7.29C4.672 5.163 6.656 3.58 9 3.58z"/>
+        </svg>
+        Welcome back! Please sign in to your account.
+      </button>
+
+      <p class="af__alt">Don&rsquo;t have an account? <button type="button" data-tab="up">Sign up</button></p>
+    </form>
+
+    <!-- sign up -->
+    <form class="af" id="pane-up" role="tabpanel" aria-labelledby="tab-up" data-form="up" novalidate hidden>
+      <div class="fld">
+        <label class="fld__l" for="up-name">Name</label>
+        <div class="fld__wrap">
+          <span class="fld__ic" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="8.2" r="3.6" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M5 19.6c1.2-4.3 4.3-6.5 7-6.5s5.8 2.2 7 6.5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></span>
+          <input id="up-name" name="name" type="text" autocomplete="name" placeholder="Your name" required>
+        </div>
+        <em class="fld__e" data-err="name" role="alert"></em>
+      </div>
+      <div class="fld">
+        <label class="fld__l" for="up-email">Email</label>
+        <div class="fld__wrap">
+          <span class="fld__ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4.5 6h15v12h-15z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><path d="M4.5 6.8l7.5 6 7.5-6" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg></span>
+          <input id="up-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+        </div>
+        <em class="fld__e" data-err="email" role="alert"></em>
+      </div>
+      <div class="fld">
+        <label class="fld__l" for="up-pass">Password</label>
+        <div class="fld__wrap">
+          <span class="fld__ic" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="10.5" width="14" height="9.5" rx="2.2" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M8 10.5V7.6a4 4 0 0 1 8 0v2.9" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></span>
+          <input id="up-pass" name="password" type="password" autocomplete="new-password" placeholder="At least 8 characters" required aria-describedby="pw-hint">
+          <button class="fld__eye" type="button" data-eye aria-label="Show password" aria-pressed="false">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.6-6.5 10-6.5S22 12 22 12s-3.6 6.5-10 6.5S2 12 2 12z" fill="none" stroke="currentColor" stroke-width="1.4"/><circle cx="12" cy="12" r="2.8" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>
+          </button>
+        </div>
+        <div class="pw" data-pw hidden>
+          <span class="pw__bar"><i data-pw-fill></i></span>
+          <span class="pw__l" data-pw-label></span>
+        </div>
+        <em class="fld__e" data-err="password" role="alert"></em>
+        <p class="fld__hint" id="pw-hint">Eight characters or more, with at least one letter and one number.</p>
+      </div>
+      <div class="fld">
+        <label class="fld__l" for="up-conf">Confirm password</label>
+        <div class="fld__wrap">
+          <span class="fld__ic" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="10.5" width="14" height="9.5" rx="2.2" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M8 10.5V7.6a4 4 0 0 1 8 0v2.9" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></span>
+          <input id="up-conf" name="confirm" type="password" autocomplete="new-password" placeholder="Repeat your password" required>
+          <button class="fld__eye" type="button" data-eye aria-label="Show password" aria-pressed="false">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.6-6.5 10-6.5S22 12 22 12s-3.6 6.5-10 6.5S2 12 2 12z" fill="none" stroke="currentColor" stroke-width="1.4"/><circle cx="12" cy="12" r="2.8" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>
+          </button>
+        </div>
+        <em class="fld__e" data-err="confirm" role="alert"></em>
+      </div>
+      <label class="chk chk--terms"><input type="checkbox" name="terms"><span></span><span class="chk__text">I agree to the <a href="terms.html" target="_blank" rel="noopener">Terms</a> and <a href="privacy-policy.html" target="_blank" rel="noopener">Privacy Policy</a>.</span></label>
+      <em class="fld__e" data-err="terms" role="alert"></em>
+      <button class="af__go" type="submit"><span>Sign up</span></button>
+      <p class="af__note" data-note role="status"></p>
+      <p class="af__alt">Already have an account? <button type="button" data-tab="in">Sign in</button></p>
+    </form>
+
+
+  </div>
+</div>
+
+<script type="module" src="../assets/js/main.js?v=17"></script>
+</body>
+</html>
